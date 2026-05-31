@@ -1,0 +1,73 @@
+date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
+2026-06-11,Mexico,South Africa,,,FIFA World Cup,Mexico City,Mexico,False
+2026-06-11,South Korea,Czech Republic,,,FIFA World Cup,Zapopan,Mexico,True
+2026-06-12,Canada,Bosnia and Herzegovina,,,FIFA World Cup,Toronto,Canada,False
+2026-06-12,United States,Paraguay,,,FIFA World Cup,Inglewood,United States,False
+2026-06-13,Qatar,Switzerland,,,FIFA World Cup,Santa Clara,United States,True
+2026-06-13,Brazil,Morocco,,,FIFA World Cup,East Rutherford,United States,True
+2026-06-13,Haiti,Scotland,,,FIFA World Cup,Foxborough,United States,True
+2026-06-13,Australia,Turkey,,,FIFA World Cup,Vancouver,Canada,True
+2026-06-14,Germany,Curaçao,,,FIFA World Cup,Houston,United States,True
+2026-06-14,Ivory Coast,Ecuador,,,FIFA World Cup,Philadelphia,United States,True
+2026-06-14,Netherlands,Japan,,,FIFA World Cup,Arlington,United States,True
+2026-06-14,Sweden,Tunisia,,,FIFA World Cup,Guadalupe,Mexico,True
+2026-06-15,Belgium,Egypt,,,FIFA World Cup,Seattle,United States,True
+2026-06-15,Iran,New Zealand,,,FIFA World Cup,Inglewood,United States,True
+2026-06-15,Spain,Cape Verde,,,FIFA World Cup,Atlanta,United States,True
+2026-06-15,Saudi Arabia,Uruguay,,,FIFA World Cup,Miami Gardens,United States,True
+2026-06-16,France,Senegal,,,FIFA World Cup,East Rutherford,United States,True
+2026-06-16,Iraq,Norway,,,FIFA World Cup,Foxborough,United States,True
+2026-06-16,Argentina,Algeria,,,FIFA World Cup,Kansas City,United States,True
+2026-06-16,Austria,Jordan,,,FIFA World Cup,Santa Clara,United States,True
+2026-06-17,Portugal,DR Congo,,,FIFA World Cup,Houston,United States,True
+2026-06-17,Uzbekistan,Colombia,,,FIFA World Cup,Mexico City,Mexico,True
+2026-06-17,England,Croatia,,,FIFA World Cup,Arlington,United States,True
+2026-06-17,Ghana,Panama,,,FIFA World Cup,Toronto,Canada,True
+2026-06-18,Czech Republic,South Africa,,,FIFA World Cup,Atlanta,United States,True
+2026-06-18,Mexico,South Korea,,,FIFA World Cup,Zapopan,Mexico,False
+2026-06-18,Switzerland,Bosnia and Herzegovina,,,FIFA World Cup,Inglewood,United States,True
+2026-06-18,Canada,Qatar,,,FIFA World Cup,Vancouver,Canada,False
+2026-06-19,Scotland,Morocco,,,FIFA World Cup,Foxborough,United States,True
+2026-06-19,Brazil,Haiti,,,FIFA World Cup,Philadelphia,United States,True
+2026-06-19,United States,Australia,,,FIFA World Cup,Seattle,United States,False
+2026-06-19,Turkey,Paraguay,,,FIFA World Cup,Santa Clara,United States,True
+2026-06-20,Germany,Ivory Coast,,,FIFA World Cup,Toronto,Canada,True
+2026-06-20,Ecuador,Curaçao,,,FIFA World Cup,Kansas City,United States,True
+2026-06-20,Netherlands,Sweden,,,FIFA World Cup,Houston,United States,True
+2026-06-20,Tunisia,Japan,,,FIFA World Cup,Guadalupe,Mexico,True
+2026-06-21,Belgium,Iran,,,FIFA World Cup,Inglewood,United States,True
+2026-06-21,New Zealand,Egypt,,,FIFA World Cup,Vancouver,Canada,True
+2026-06-21,Spain,Saudi Arabia,,,FIFA World Cup,Atlanta,United States,True
+2026-06-21,Uruguay,Cape Verde,,,FIFA World Cup,Miami Gardens,United States,True
+2026-06-22,France,Iraq,,,FIFA World Cup,Philadelphia,United States,True
+2026-06-22,Norway,Senegal,,,FIFA World Cup,East Rutherford,United States,True
+2026-06-22,Argentina,Austria,,,FIFA World Cup,Arlington,United States,True
+2026-06-22,Jordan,Algeria,,,FIFA World Cup,Santa Clara,United States,True
+2026-06-23,Portugal,Uzbekistan,,,FIFA World Cup,Houston,United States,True
+2026-06-23,Colombia,DR Congo,,,FIFA World Cup,Zapopan,Mexico,True
+2026-06-23,England,Ghana,,,FIFA World Cup,Foxborough,United States,True
+2026-06-23,Panama,Croatia,,,FIFA World Cup,Toronto,Canada,True
+2026-06-24,Mexico,Czech Republic,,,FIFA World Cup,Mexico City,Mexico,False
+2026-06-24,South Africa,South Korea,,,FIFA World Cup,Guadalupe,Mexico,True
+2026-06-24,Canada,Switzerland,,,FIFA World Cup,Vancouver,Canada,False
+2026-06-24,Bosnia and Herzegovina,Qatar,,,FIFA World Cup,Seattle,United States,True
+2026-06-24,Scotland,Brazil,,,FIFA World Cup,Miami Gardens,United States,True
+2026-06-24,Morocco,Haiti,,,FIFA World Cup,Atlanta,United States,True
+2026-06-25,United States,Turkey,,,FIFA World Cup,Inglewood,United States,False
+2026-06-25,Paraguay,Australia,,,FIFA World Cup,Santa Clara,United States,True
+2026-06-25,Curaçao,Ivory Coast,,,FIFA World Cup,Philadelphia,United States,True
+2026-06-25,Ecuador,Germany,,,FIFA World Cup,East Rutherford,United States,True
+2026-06-25,Japan,Sweden,,,FIFA World Cup,Arlington,United States,True
+2026-06-25,Tunisia,Netherlands,,,FIFA World Cup,Kansas City,United States,True
+2026-06-26,Egypt,Iran,,,FIFA World Cup,Seattle,United States,True
+2026-06-26,New Zealand,Belgium,,,FIFA World Cup,Vancouver,Canada,True
+2026-06-26,Cape Verde,Saudi Arabia,,,FIFA World Cup,Houston,United States,True
+2026-06-26,Uruguay,Spain,,,FIFA World Cup,Zapopan,Mexico,True
+2026-06-26,Norway,France,,,FIFA World Cup,Foxborough,United States,True
+2026-06-26,Senegal,Iraq,,,FIFA World Cup,Toronto,Canada,True
+2026-06-27,Algeria,Austria,,,FIFA World Cup,Kansas City,United States,True
+2026-06-27,Jordan,Argentina,,,FIFA World Cup,Arlington,United States,True
+2026-06-27,Colombia,Portugal,,,FIFA World Cup,Miami Gardens,United States,True
+2026-06-27,DR Congo,Uzbekistan,,,FIFA World Cup,Atlanta,United States,True
+2026-06-27,Panama,England,,,FIFA World Cup,East Rutherford,United States,True
+2026-06-27,Croatia,Ghana,,,FIFA World Cup,Philadelphia,United States,True
