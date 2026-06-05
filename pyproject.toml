@@ -9,6 +9,7 @@ dependencies = [
     "numpy>=2.4.6",
     "pandas>=3.0.3",
     "plotly>=6.7.0",
+    "scikit-learn>=1.9.0",
     "scipy>=1.17.1",
     "statsmodels>=0.14.6",
     "streamlit>=1.58.0",
