@@ -1,5 +1,9 @@
+import base64
 import time
+from pathlib import Path
+
 import pandas as pd
+import plotly.graph_objects as go
 import streamlit as st
 
 from src.data_loader import load_datasets, build_lookups
@@ -19,6 +23,110 @@ st.set_page_config(
 )
 
 apply_global_styles()
+
+
+STATIC_DIR = Path(__file__).parent / "data" / "static"
+
+# Same tiled background image on every page.
+PAGE_BACKGROUNDS = {
+    "probabilities": "fifa_wc2026_tournamnet_america.webp",
+    "live_simulation": "fifa_wc2026_tournamnet_america.webp",
+    "match_explorer": "fifa_wc2026_tournamnet_america.webp",
+}
+
+_MIME_BY_SUFFIX = {
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".png": "image/png",
+    ".webp": "image/webp",
+}
+
+
+def _encode_image(filename):
+    """Return (mime_type, base64_string) for an image in the static dir."""
+
+    path = STATIC_DIR / filename
+    mime = _MIME_BY_SUFFIX.get(path.suffix.lower(), "image/png")
+    encoded = base64.b64encode(path.read_bytes()).decode("utf-8")
+    return mime, encoded
+
+
+def set_page_background(filename, tile_px=180):
+    """Tile a small, 80% transparent background image across the current page."""
+
+    mime, encoded = _encode_image(filename)
+
+    st.markdown(
+        f"""
+        <style>
+        [data-testid="stAppViewContainer"] {{
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                url("data:{mime};base64,{encoded}");
+            background-size: auto, {tile_px}px auto;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: repeat;
+        }}
+        [data-testid="stHeader"] {{
+            background: rgba(0, 0, 0, 0);
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def show_trophies():
+    """Animate trophies raining down the page (a balloons-style celebration)."""
+
+    trophies = "".join(
+        f'<div class="trophy" style="left:{left}%; '
+        f'animation-delay:{delay}s; animation-duration:{duration}s; '
+        f'font-size:{size}px;">🏆</div>'
+        for left, delay, duration, size in [
+            (5, 0.0, 3.2, 36),
+            (15, 0.4, 3.8, 28),
+            (27, 0.9, 3.0, 44),
+            (38, 0.2, 4.2, 30),
+            (50, 0.6, 3.5, 38),
+            (62, 1.1, 3.1, 26),
+            (73, 0.3, 4.0, 42),
+            (84, 0.8, 3.6, 32),
+            (93, 0.5, 3.3, 40),
+        ]
+    )
+
+    st.markdown(
+        f"""
+        <style>
+        @keyframes trophy-fall {{
+            0% {{ transform: translateY(-10vh) rotate(0deg); opacity: 0; }}
+            10% {{ opacity: 1; }}
+            100% {{ transform: translateY(110vh) rotate(360deg); opacity: 0; }}
+        }}
+        .trophy-container {{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }}
+        .trophy {{
+            position: absolute;
+            top: 0;
+            animation-name: trophy-fall;
+            animation-timing-function: ease-in;
+            animation-iteration-count: 1;
+        }}
+        </style>
+        <div class="trophy-container">{trophies}</div>
+        """,
+        unsafe_allow_html=True,
+    )
+
 
 data = load_datasets()
 lookups = build_lookups()
@@ -69,6 +177,7 @@ def style_probability_table(df):
 
 
 def page_probabilities():
+    set_page_background(PAGE_BACKGROUNDS["probabilities"])
     show_header()
 
     st.subheader("🏆 Precomputed tournament probabilities")
@@ -103,9 +212,49 @@ def page_probabilities():
 
     chart_df["team_label"] = chart_df["team"].apply(team_label)
 
-    st.bar_chart(
-        chart_df.set_index("team_label")["winner_prob"]
+    # Color bars by their descending rank: top 3 red, 4-10 green, rest dark blue.
+    def rank_color(rank):
+        if rank < 3:
+            return "#D62828"   # red (like Canada)
+        if rank < 10:
+            return "#2A9D3F"   # green (like Mexico)
+        return "#1A3A8F"       # dark blue (like USA)
+
+    bar_colors = [rank_color(i) for i in range(len(chart_df))]
+
+    fig = go.Figure(
+        go.Bar(
+            x=chart_df["team_label"],
+            y=chart_df["winner_prob"],
+            marker_color=bar_colors,
+            hovertemplate="%{x}<br>Win probability: %{y:.1%}<extra></extra>",
+        )
     )
+    fig.update_layout(
+        xaxis_title=None,
+        yaxis_title="Win probability",
+        yaxis_tickformat=".0%",
+        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="rgba(0,0,0,0)",
+        font_color="white",
+        margin=dict(l=0, r=0, t=10, b=0),
+    )
+    # Clearly visible white axis lines and ticks for readability.
+    axis_style = dict(
+        showline=True,
+        linecolor="white",
+        linewidth=2,
+        ticks="outside",
+        tickcolor="white",
+        zeroline=False,
+    )
+    fig.update_xaxes(**axis_style)
+    fig.update_yaxes(
+        **axis_style,
+        gridcolor="rgba(255,255,255,0.15)",
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
 
     st.markdown("### Full probability table")
 
@@ -163,6 +312,7 @@ def render_group_table(group_table):
 
 
 def page_live_simulation():
+    set_page_background(PAGE_BACKGROUNDS["live_simulation"])
     show_header()
 
     st.subheader("🎮 Live tournament simulation")
@@ -242,10 +392,11 @@ def page_live_simulation():
             unsafe_allow_html=True,
         )
 
-        st.balloons()
+        show_trophies()
 
 
 def page_match_explorer():
+    set_page_background(PAGE_BACKGROUNDS["match_explorer"])
     show_header()
 
     st.subheader("🔎 Match explorer")
